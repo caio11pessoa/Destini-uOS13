@@ -19,19 +19,19 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateUI(id: storyBrain.storyNumber)
+        updateUI()
         
     }
 
     @IBAction func choiceMade(_ sender: UIButton) {
         storyBrain.nextStory(userChoice: sender.currentTitle!)
-        updateUI(id: storyBrain.storyNumber)
+        updateUI()
     }
     
-    func updateUI(id: Int) {
-        storyLabel.text = storyBrain.stories[id].title
-        choice1Button.setTitle(storyBrain.stories[id].choice1, for: .normal)
-        choice2Button.setTitle(storyBrain.stories[id].choice2, for: .normal)
+    func updateUI() {
+        storyLabel.text = storyBrain.getStoryTitle()
+        choice1Button.setTitle(storyBrain.getChoice1(), for: .normal)
+        choice2Button.setTitle(storyBrain.getChoice2(), for: .normal)
     }
     
 }
